@@ -56,9 +56,8 @@ public class GornerTableModel extends AbstractTableModel {
                 for (int i = 0; i < coefficients.length - 1; i++) {
                     result = result * x + coefficients[i + 1];
                 }
-                //Возвращает true, если целая часть является кваратом и false в противном случае
-                Double temp = pow(round(sqrt(result)), 2);
-                if (result.intValue()==temp.intValue()) {
+                //Возвращает true, дробная часть значения многочлена равна нулю и false в противном случае
+                if (result % 1 == 0) {
                     boolResult = true;
                 } else {
                     boolResult = false;
@@ -77,7 +76,7 @@ public class GornerTableModel extends AbstractTableModel {
                 return "Значение многочлена";
             default:
 // Название 3-го столбца
-                return "Целая часть является квадратом?";
+                return "Точное значение?";
         }
     }
     public Class<?> getColumnClass(int col) {
